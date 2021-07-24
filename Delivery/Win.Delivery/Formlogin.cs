@@ -28,6 +28,10 @@ namespace Win.Delivery
             usuario = textBox1.Text;
             contrasena = textBox2.Text;
 
+            button1.Enabled = false;
+            button1.Text = "Verificando...";
+            Application.DoEvents();
+
             var resultado = _seguridad.Autorizar(usuario, contrasena);
 
             if (resultado == true)
@@ -38,6 +42,11 @@ namespace Win.Delivery
             {
                 MessageBox.Show("Usuario o contraseña incorrecta");
             }
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
