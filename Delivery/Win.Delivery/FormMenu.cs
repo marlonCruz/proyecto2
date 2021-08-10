@@ -32,6 +32,8 @@ namespace Win.Delivery
         {
             var formLogin = new FormLogin();
             formLogin.ShowDialog();
+
+            toolStripStatusLabel1.Text ="Usuario: " + Utilidades.NombreUsuario;
         }
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)

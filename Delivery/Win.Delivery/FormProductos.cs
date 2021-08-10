@@ -204,5 +204,31 @@ namespace Win.Delivery
         {
 
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                buscar();
+            }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            buscar();
+        }
+
+        private void buscar()
+        {
+            var busqueda = textBox1.Text;
+
+            if (busqueda != "")
+            {
+                listaProductosBindingSource.DataSource = _productos.ObtenerProductos(busqueda);
+            }
+            else
+                listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
+        }
     }
 }
+    
+

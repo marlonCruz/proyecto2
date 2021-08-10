@@ -18,6 +18,12 @@ namespace BL.Ventas
 
             contexto.Usuarios.Add(usuarioAdmin);
 
+            var usuariocaja = new Usuario();
+            usuariocaja.Nombre = "caja";
+            usuariocaja.Contrasena = "456";
+
+            contexto.Usuarios.Add(usuariocaja);
+
             var categoria1 = new Categoria();
             categoria1.Descripcion = "Acción y Aventura";
             contexto.Categorias.Add(categoria1);

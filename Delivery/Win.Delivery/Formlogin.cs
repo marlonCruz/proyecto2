@@ -32,10 +32,11 @@ namespace Win.Delivery
             button1.Text = "Verificando...";
             Application.DoEvents();
 
-            var resultado = _seguridad.Autorizar(usuario, contrasena);
+            var usuarioDB = _seguridad.Autorizar(usuario, contrasena);
 
-            if (resultado == true)
+            if (usuarioDB != null)
             {
+                Utilidades.NombreUsuario = usuarioDB.Nombre;
                 this.Close();
             }
             else
@@ -48,5 +49,30 @@ namespace Win.Delivery
         {
 
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+       
+            if (textBox1.Text != "")
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    textBox2.Focus();
+                }
+            }
+
+        }
+
+        private void textBox2_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (textBox2.Text != "")
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    button1.PerformClick();
+                }
+            }
+        }
     }
+    
 }
